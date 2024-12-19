@@ -1,4 +1,5 @@
 import { RouteConfig } from "./types";
+import withSuspense from "./withSuspense";
 import { TodoListPage, TodoDetailsPage } from "./lazyPages";
 
 /**
@@ -19,12 +20,12 @@ import { TodoListPage, TodoDetailsPage } from "./lazyPages";
 const routes: RouteConfig[] = [
   {
     path: "/todo",
-    element: <TodoListPage />,
+    element: withSuspense(TodoListPage),
     key: "todo",
   },
   {
     path: "todo/:id",
-    element: <TodoDetailsPage />,
+    element: withSuspense(TodoDetailsPage),
     key: "todo-details",
   },
 ];
