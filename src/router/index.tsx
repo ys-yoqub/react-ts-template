@@ -11,7 +11,6 @@ interface RouteConfig {
 
 const renderRoutes = (routes: RouteConfig[]) => {
   return routes.map((route) => {
-    console.log("routes", route);
     if (route.children) {
       return (
         <Route key={route.key} path={route.path} element={route.element}>

@@ -13,23 +13,23 @@ interface RouteConfig {
 }
 
 const routes: RouteConfig[] = [
+  // todo page section
   {
     path: "/todo",
     element: <TodoListPage />,
     key: "todo",
-    children: [
-      {
-        path: "/todo/:id",
-        key: "todo-details",
-        element: <TodoDetailsPage />,
-      },
-      {
-        path: "/todo/update/:id",
-        key: "todo-update",
-        element: <TodoDetailsPage />,
-      },
-    ],
   },
+  {
+    path: "todo/:id",
+    key: "todo-details",
+    element: <TodoDetailsPage />,
+  },
+  {
+    path: "todo/update/:id",
+    key: "todo-update",
+    element: <TodoDetailsPage />,
+  },
+  // end of todo page section
 ];
 
 export default routes;
