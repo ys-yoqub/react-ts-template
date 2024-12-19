@@ -15,3 +15,4 @@ export const TodoListPage = lazy(
 export const TodoDetailsPage = lazy(
   () => import("../modules/todo/pages/TodoDetailsPage")
 );
+export const HomePage = lazy(() => import("../modules/home/pages/HomePage"));

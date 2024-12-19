@@ -1,6 +1,6 @@
 import { RouteConfig } from "./types";
 import withSuspense from "./helper/withSuspense";
-import { TodoListPage, TodoDetailsPage } from "./lazyPages";
+import { TodoListPage, TodoDetailsPage, HomePage } from "./lazyPages";
 
 /**
  * Application Route Configuration
@@ -26,6 +26,11 @@ const routes: RouteConfig[] = [
     path: "todo/:id",
     element: withSuspense(TodoDetailsPage),
     key: "todo-details",
+  },
+  {
+    path: "/",
+    element: withSuspense(HomePage),
+    key: "home",
   },
 ];
 
