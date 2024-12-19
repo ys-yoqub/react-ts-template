@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import DefaultLoading from "../shared/components/DefaultLoading";
+import DefaultLoading from "../../shared/components/DefaultLoading";
 
 /**
  * A utility function to wrap a lazy-loaded component with React.Suspense.

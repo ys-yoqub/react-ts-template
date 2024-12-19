@@ -1,5 +1,5 @@
 import { RouteConfig } from "./types";
-import withSuspense from "./withSuspense";
+import withSuspense from "./helper/withSuspense";
 import { TodoListPage, TodoDetailsPage } from "./lazyPages";
 
 /**
@@ -16,7 +16,6 @@ import { TodoListPage, TodoDetailsPage } from "./lazyPages";
  * If you are using nested routes, ensure the parent component renders the `<Outlet />` component
  * to display the child route's content.
  */
-
 const routes: RouteConfig[] = [
   {
     path: "/todo",
