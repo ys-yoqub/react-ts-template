@@ -1,7 +1,7 @@
 const TodoListPage = () => {
   return (
     <div>
-      <h1>to do list page</h1>
+      <h1>List page</h1>
     </div>
   );
 };
