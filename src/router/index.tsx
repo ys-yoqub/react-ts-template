@@ -67,7 +67,7 @@ const renderRoutes = (routes: RouteConfig[]) => {
 const AppRouter: FC = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Routes>{renderRoutes(routes)}</Routes>
+      <Routes>{renderRoutes(routes as RouteConfig[])}</Routes>
     </Suspense>
   );
 };
