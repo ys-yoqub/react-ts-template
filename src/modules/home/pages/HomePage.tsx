@@ -1,15 +1,16 @@
-import { useEffect } from "react";
-import api from "../../../services/api";
+import { useFetch } from "../../../shared/hooks/useCrud";
 
 const HomePage = () => {
-  useEffect(() => {
-    api.get("users").then((response) => {
-      console.log(response.data);
-    });
-  }, []);
+  const fetchUsers = useFetch(["users"], "/users");
+
+  const handleRefetch = () => {
+    fetchUsers.refetch();
+    console.log("refetching data", fetchUsers.data);
+  };
   return (
     <div>
       <h1>Home Page</h1>
+      <button onClick={handleRefetch}>refetch data</button>
     </div>
   );
 };
