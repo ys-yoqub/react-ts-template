@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 /**
  * useModal Hook
  *
@@ -35,7 +36,12 @@ import { useState } from "react";
  * - `close: () => void` - A function to set the state to `false` (close).
  * - `reverse: () => void` - A function to toggle the state.
  */
-function useModal(defaultValue: boolean = false): object {
+function useModal(defaultValue: boolean = false): {
+  status: boolean;
+  open: () => void;
+  close: () => void;
+  reverse: () => void;
+} {
   /**
    * State to track whether the modal is open or closed.
    *

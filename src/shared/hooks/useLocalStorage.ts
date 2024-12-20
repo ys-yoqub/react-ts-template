@@ -3,33 +3,27 @@
  *
  * A custom hook that provides utility methods for interacting with the browser's `localStorage`.
  *
- * This hook simplifies storing and retrieving values in `localStorage` while ensuring proper
+ * This hook simplifies storing, retrieving, and removing values in `localStorage` while ensuring proper
  * serialization and deserialization of data.
  *
  * Methods:
  * - `get`: Retrieves a value from `localStorage`. If the key does not exist, it returns the provided default value.
  * - `set`: Stores a value in `localStorage` after serializing it to JSON.
+ * - `remove`: Removes a value from `localStorage` by its key.
+ * - `clear`: Clears all data from `localStorage`.
  *
- * Note:
- * Ensure the provided `defaultValue` matches the expected type of the stored value.
- *
- * Example Usage:
- * ```tsx
- * const { get, set } = useLocalStorage();
- *
- * // Store a value
- * set("user", { name: "John", age: 30 });
- *
- * // Retrieve a value
- * const user = get("user", { name: "Default", age: 0 });
- * console.log(user.name); // Output: John
- * ```
- *
- * @returns {object} An object containing two utility methods:
+ * @returns {object} An object containing utility methods:
  * - `get<T>(key: string, defaultValue: T): T` - Retrieves the value associated with the key.
  * - `set<T>(key: string, value: T): void` - Stores the value associated with the key.
+ * - `remove(key: string): void` - Removes the value associated with the key.
+ * - `clear(): void` - Clears all stored data.
  */
-const useLocalStorage = () => {
+const useLocalStorage = (): {
+  get: <T>(key: string, defaultValue: T) => T;
+  set: <T>(key: string, value: T) => void;
+  remove: (key: string) => void;
+  clear: () => void;
+} => {
   /**
    * Retrieves a value from `localStorage`.
    *
@@ -57,8 +51,28 @@ const useLocalStorage = () => {
     localStorage.setItem(key, JSON.stringify(value));
   };
 
-  // Return the utility methods
-  return { get, set };
+  /**
+   * Removes a value from `localStorage`.
+   *
+   * @param {string} key - The key of the value to remove from `localStorage`.
+   *
+   * @returns {void}
+   */
+  const remove = (key: string): void => {
+    localStorage.removeItem(key);
+  };
+
+  /**
+   * Clears all values from `localStorage`.
+   *
+   * @returns {void}
+   */
+  const clear = (): void => {
+    localStorage.clear();
+  };
+
+  // Return the utility methods with proper type annotations
+  return { get, set, remove, clear };
 };
 
 export default useLocalStorage;
