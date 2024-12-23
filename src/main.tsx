@@ -11,10 +11,11 @@ import theme from "./styles/theme";
 import "./shared/styles/main.scss";
 
 const rootElement = document.getElementById("root");
-const queryClient = new QueryClient();
 
 if (rootElement) {
   const root = createRoot(rootElement);
+  const queryClient = new QueryClient();
+
   root.render(
     <React.StrictMode>
       <BrowserRouter>
