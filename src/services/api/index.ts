@@ -2,17 +2,17 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const baseURL = import.meta.env.VITE_BASE_URL;
+const envAcceptLanguage = import.meta.env.VITE_ACCEPT_LANGUAGE;
 
-const api = axios.create({
-  baseURL,
-  headers: {},
-});
+const api = axios.create({ baseURL, headers: {} });
+const acceptLanguage =
+  localStorage?.getItem("acceptLanguage") || envAcceptLanguage;
 
 api.interceptors.request.use(
   (config) => {
-    Cookies.set("token", "test-bearer-token");
+    config.headers["Accept-Language"] = acceptLanguage;
     const token = Cookies.get("token");
-    console.log("token: ", token);
+
     if (token) {
       config.headers["Authorization"] = `Bearer ${token}`;
     }
