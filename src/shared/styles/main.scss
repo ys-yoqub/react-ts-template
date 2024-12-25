@@ -1,7 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss/utilities";
 @import url("./abstracts/_fonts.scss");
 
 * {
