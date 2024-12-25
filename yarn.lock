@@ -3770,11 +3770,6 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
-sass-to-js@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/sass-to-js/-/sass-to-js-2.0.0.tgz#92adf2f7a58076f9eabd4c2f6b5f56a3bff9be08"
-  integrity sha512-LQW4d54Pb57rUG2wM2k/EL/9xm9qyv8up67bkY6oyqSfZ52t0nYaMYH+VoGIudM2nBYAUclAs0kRYwopD9IZ1w==
-
 sass@^1.83.0:
   version "1.83.0"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.83.0.tgz#e36842c0b88a94ed336fd16249b878a0541d536f"

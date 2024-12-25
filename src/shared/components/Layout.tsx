@@ -5,9 +5,9 @@ import Sidebar from "./Sidebar";
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <div>
+    <div className="">
       <Header />
-      <div className="flex">
+      <div>
         <Sidebar />
         <div>{children}</div>
       </div>
